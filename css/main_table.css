@@ -1,0 +1,184 @@
+.our_table {
+  overflow-x:visible;
+}
+.drawtable {
+  font-size: 12px;
+  border-collapse: collapse;
+  /* border-spacing: 0; */
+  }
+
+ .drawtable td{
+ border: 2px double grey ;
+ word-wrap : break-word;
+ text-align: center;
+ padding: 1px;
+}
+
+/* ДЛЯ ТАБЛИЦЫ ИНН */
+.table_inn {
+ font-size: 12px;
+ border-collapse: collapse;
+  /* border-spacing: 0; */
+  }
+
+
+
+ .table_inn td{
+ border: 2px double grey ;
+ word-wrap : break-word;
+ text-align: center;
+ padding: 1px;
+ border-left: 2px double grey ;
+}
+
+
+.DrawLight {
+  background: rgb(224, 240, 246);
+ }
+ .DrawDark {
+  background: rgb(202, 212, 216);
+ }
+ .draw_inn {
+  background: rgb(250, 230, 174);
+ }
+
+ .alarmcolor {
+  color: red;
+  font-weight: 900;
+}
+
+.limit_width {
+  min-width: 370px;
+  max-width: 370;
+}
+
+
+
+.RedColor {
+  color:indigo;
+  font-weight: 700;
+  
+}
+.GreenColor {
+  color:firebrick;
+  font-weight: 900;
+  
+}
+.BlinkColor {
+   color:rgb(189, 185, 185)
+   
+}
+.BlinkColor a {
+  color:rgb(189, 185, 185); 
+ }
+.get_rigth {
+  margin: 0 0 0 auto;
+}
+
+
+.modal_tabel {
+  border:  0.5px solid ;
+  word-wrap : break-word;
+  text-align: center;
+   
+}
+/* Купили у нас */
+.buyour {
+  background-color:greenyellow;
+    color:green;;
+    font-weight: 900;
+    
+}
+/* Перенос на следующий год */
+.buy_next_year {
+  background-color:rgb(250, 137, 44);
+    color:rgb(3, 71, 3);;
+    font-weight: 900;
+    
+}
+
+
+.markerClass, .commentClass, .btncommentClass{
+  cursor: pointer; 
+}
+
+
+
+.drawtableinn {
+  /* max-width: 99%; */
+  font-size: 12px;
+  /* word-wrap : break-word; */
+  }
+
+ .drawtableinn td{
+ background: rgb(240, 194, 134);
+ border:  1px solid ;
+ word-wrap : break-word;
+ text-align: center;
+ }
+
+/* Стилизуем нумерацию страниц */
+ .pageNumber {
+  background-color: rgb(183, 241, 219);
+  text-align: center;
+  font-size: 20px;
+  
+  }
+ .bigNumber {
+  font-size: 25px;
+  margin: 0 5px 0 5px;
+  padding: 0 5px 0 5px;
+  text-align: center;
+  text-decoration:none;
+  color: rgb(253, 86, 45);
+
+}
+.normalNumber {
+  margin: 0 3px 0 3px;
+  padding: 0 5px 0 5px;
+  text-align: center;
+  text-decoration:none;
+  color:darkcyan;
+}
+.scale11:hover {
+  transform: scale(1.1); 
+}
+.text_left {
+  text-align: left !important;
+  padding-left: 3px !important;
+  line-height: 1.25;
+}
+hr {
+   margin-top: 2px;
+   margin-bottom: 2px;
+   margin-left: 2px;
+   margin-right: 2px;
+}
+.sell_comp {
+  background-color:greenyellow;
+  
+  opacity: 0.9;
+  border-radius: solid 5px;
+ }
+ /* цветом выделяе новые КП без цен */
+ .new_kp_marker { 
+  background: rgb(114, 145, 233);
+ }
+
+ .text_center_img {
+  position: absolute;
+  left: 0px;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #050507;
+
+}
+.container_link_img {
+  position: relative;
+}
+
+

@@ -1,0 +1,18 @@
+@import url('admin_panel/admin_panel.css');
+@import url('general.css');
+@import url('info_filtr.css');
+@import url('main_table.css');
+@import url('modal.css');
+@import url('make_new_kp/make_new_kp.css'); /* для объектных */
+@import url('make_new_kp/make_new_kp2.css'); /* для остальных */
+@import url('phone_tab.css');
+@import url('alarm_message.css');
+@import url('date_check_reports.css');
+@import url('send_mail.css');
+@import url('report_table.css');
+@import url('form_update_kp.css');
+@import url('reports_about_kp.css');
+@import url('analitika.css');
+
+
+

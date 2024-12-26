@@ -1,0 +1,109 @@
+.zagolovok_an {
+text-align: left;
+font-size: 15px;
+background-color:rgb(237, 235, 233);
+padding-top: 5px;
+padding-bottom: 5px;
+padding-left: 30px;
+font-family: "Arial";
+}
+/****************************************************** Второе сверху меню */
+.date_select_menu_an {
+  display: flex;
+  margin: 10px;
+}
+.mar_left_30 {
+  margin-left: 30px;
+}
+.mar_left_60 {
+  margin-left: 140px;
+}
+
+.date_menu_an {
+  display: flex;
+  background-color:rgb(237, 235, 233);
+  padding-left: 120px;
+  list-style: none;
+
+}
+.date_menu_an li {
+    color: #a49595;
+    padding-left: 30px;
+
+}
+.date_menu_an li :hover{
+
+  color: #b98e33;
+
+}
+.date_menu_an li a {
+      /* text-decoration: none; */
+      color: #705b5b;
+      font-size: 16px;
+      font-weight: 400;
+      transition: all 0.1s;
+      /* position: relative; */
+}
+
+/************************************************* Таблица по работе с КП */
+
+  .table_work_kp{
+    margin: 0 auto;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid rgb(244, 213, 213) ;
+    margin-bottom: 20px;
+    box-shadow: 1px 1px;
+  }
+    .table_work_kp  th {
+    font-weight: bold;
+    text-align: center;
+    border: none;
+    padding: 10px 15px;
+    background: #90c17f;
+    font-size: 14px;
+  }
+  .table_work_kp  tr th:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  .table_work_kp  tr th:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+  .table_work_kp  td {
+    text-align: center;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    vertical-align: top;
+  }
+  .table_work_kp  tr:nth-child(odd){
+    background: #f3f3f3;
+  }
+  .table_work_kp  tr td:first-child {
+    border-radius: 4px 0 0 4px;
+  }
+  .table_work_kp  tr td:last-child {
+    border-radius: 0 4px 4px 0;
+  }
+
+.table_work_kp  a:hover {
+  color: rgb(239, 61, 34);
+  font-weight: 800;
+
+}
+  
+.itogo {
+  border-top: #303b2c 1px solid;
+  font-weight: 900;
+}  
+
+.light_blue {
+  
+  background: #a6caf3 !important;
+  
+}
+.pd10 {
+  width: 79%;
+  padding: 10px;
+}

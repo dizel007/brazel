@@ -1,0 +1,74 @@
+.mail_about_company {
+  margin: 20px;
+  margin-top: 5px;
+  padding: 20px;
+  padding-top: 5px;
+
+  padding-bottom: 0;
+}
+.mail-center {
+  display:block;
+  margin-top: 0;
+  margin-bottom: 5px;
+  font-size: 24px;
+  text-align: center
+
+}
+.container {
+  display: block;
+  width: 100%;
+  background: #EEE;
+  margin: 10px auto;
+  /* position: relative; */
+}
+
+.emails_from_db {
+  width:45%;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  padding-left: 20px;
+  float: left;
+}
+table {
+  border: 1px solid #CCC;
+  border-collapse: collapse;
+}
+
+.emails_table_db {
+  border: 1px solid rgba(96, 96, 96, 0.5);
+  font-size: 14px;
+  padding: 5px;
+  
+}
+.email_table_shapka {  
+text-align:center;
+font-weight: 800;
+}
+
+.add_post_file {
+  width:45%;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  padding-left: 20px;
+  float: left;
+
+
+}
+.post_text {
+  width:90%;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  float: left;
+  float: bottom;
+}
+.mail_button{
+  width:90%;
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  float: left;
+  float: bottom; 
+}
+.alarm_font {
+  color:red;
+  
+}

@@ -1,0 +1,77 @@
+.zagolovok_reports_table {
+  background: rgb(56, 143, 220);
+  border-top:  2px solid  rgb(205, 136, 102);
+  font-size: 20px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  text-align: center;
+  color:#ddcb22
+
+}
+
+.styled-table {
+  width: 100%;
+}
+
+.styled-table th,.styled-table td {
+
+    font-size: 13px;
+    padding: 5px;
+}
+.report_link {
+  display: block;
+  padding: 5px 0 5px 0;
+  height: 30px;
+  text-align: center;
+color:rgb(13, 19, 19);
+font-weight: 900;
+border: 1px dashed;
+
+}
+.report_link:hover {
+  font-size: 24px;
+ }
+
+.styled-table tr:nth-child(odd) {
+  background: rgb(251, 214, 214);
+}
+.styled-table tr:nth-child(even) {
+  background: #fff8b6;
+}
+.reports_shapka {
+  background: rgb(112, 203, 200);
+}
+.width_90px {
+  width: 90px;
+}
+.width_150px {
+  width: 200px;
+}
+.s_font_24 td{
+  
+  font-size: 20px;
+ 
+}
+
+.link_reports_table {
+  width: 50%;
+  border:1px solid rgb(36, 14, 161);
+  margin: auto;
+  border-radius: 5px;
+  /* background-color: rgb(199, 238, 229); */
+  box-shadow: 2px 5px 4px 2px rgba(162, 156, 156, 0.5);
+  font-weight: 600;
+  /* position: absolute; */
+  /* top: 50%; */
+
+}
+.darkgreen_shapka {
+  background: rgb(23, 100, 43)   !important;
+  color:antiquewhite !important;
+}
+
+.darkblue_shapka {
+  background: rgb(70, 103, 236)   !important;
+  color:antiquewhite !important;
+}
+

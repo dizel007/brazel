@@ -1,0 +1,10 @@
+.table_about_kp {
+  margin-left: 40px;
+  border: 1px solid;
+
+}
+
+.table_about_kp td {
+  padding: 5px;
+  border: 1px solid;
+}

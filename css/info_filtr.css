@@ -1,0 +1,37 @@
+/* прячем все лишние меню */
+/* #g_dateKPs,#g_dateKPe, #g_inn,#g_id_kp,#g_responsible, 
+#g_name_zakazchik,#g_adres_postavki {
+  display:none */
+/* } */
+/* Силизация талицы с фильтрами */
+.up_form_new {
+  display: flex;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  width: 100%;
+  background-color: rgb(122, 165, 127);
+  min-height: 30px;
+  margin: 0;
+  }
+/* Стилизация внутренних окон в таблицы фильтрво */
+.mobile_web{
+  margin: 5px;
+}
+.reset_button {
+  position: fixed;
+	right: 5px;
+	top: 1px;
+  background: linear-gradient(rgb(158, 216, 171), rgb(111, 120, 25));
+  justify-content: center;
+  align-items: center;
+  border-radius: 12%;
+  text-align: center;
+  margin: 2px 20px;
+  font-size: 15px;
+  padding: 10px;
+  display: flex;
+  height: 12px;
+  width: 40px;
+  opacity: .9;
+  color: rgb(255, 255, 255);
+}

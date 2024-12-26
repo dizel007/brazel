@@ -1,0 +1,189 @@
+.shapka_kp {
+  padding: 20px;
+  margin: 20px;
+  border:none;
+  font-size: 20px;
+  font-weight: 700;
+
+}
+.link_inn {
+  border: 1px solid;
+  text-decoration: none;
+  border-radius: 3px;
+  padding: 5px;
+  background: linear-gradient(180deg, rgb(240, 199, 145) 0%, rgb(206, 185, 143) 35%, rgb(184, 133, 88) 100%);
+  color: rgb(49, 43, 68);
+  font-size: 14px;
+ }
+ .link_inn:hover {
+  transition: 1s;
+  color: rgb(201, 15, 15);
+  background: linear-gradient(180deg, rgb(240, 224, 145) 0%, rgb(206, 200, 143) 35%, rgb(184, 162, 88) 100%);
+
+ }
+
+ .add_string{
+	width: 100px;
+  margin: 15px;
+  border: 1px solid;
+  border-radius: 3px;
+  padding: 5px;
+  background: linear-gradient(180deg, rgb(250, 103, 86) 0%, rgb(204, 136, 107) 35%, rgb(216, 138, 74) 100%);
+  color: rgb(0, 0, 0);
+  font-size: 14px;
+  font-weight: 500;
+	
+ }
+.add_string:hover{
+  transition: 1s;
+  color: rgb(201, 15, 15);
+  }
+ 
+ .add_string a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+
+ } 
+.major_info {
+  color: rgb(201, 15, 15);
+  text-decoration:underline;
+}
+
+/* === Remove input autofocus webkit === */
+*:focus {outline: none;}
+
+
+/* === List Styles === */
+
+/* === Form Header === */
+.contact_form_change_kp  {
+ padding-left: 20px;
+}
+
+
+.contact_form_change_kp h2 {
+	margin:0;
+	display: inline;
+}
+
+.contact_form_change_kp .table_p{
+	padding:5px 8px;
+  border:1px solid #aaa;
+  border-radius:2px;
+  /* padding-right:30px; */
+  transition: padding .25s;
+}
+
+.contact_form_change_kp label {
+	width:440px;
+	margin-top: 3px;
+	display:inline-block;
+	float:left;
+	padding:3px;
+}
+
+/* === Form Elements === */
+.contact_form_change_kp input {
+	/* height:25px;  */
+	width: 100%; 
+	padding:5px 8px;
+}
+
+.contact_form_change_kp button {
+  margin-left:50px;
+  margin-bottom:10px;
+
+}
+
+	/* form element visual styles */
+	.contact_form_change_kp input,  .contact_form_change_kp select { 
+		border:1px solid #aaa;
+		box-shadow: 0px 0px 3px #ccc, 0 10px 15px #eee inset;
+		border-radius:2px;
+		/* padding-right:30px; */
+		transition: padding .25s;
+	}
+	.contact_focontact_form_change_kprm input:focus, .contact_form_change_kp select:focus {
+		background: #fff; 
+		border:1px solid #555; 
+		box-shadow: 0 0 3px #aaa; 
+		/* padding-right:70px; */
+	}
+
+/* === HTML5 validation styles === */	
+.contact_form_change_kp input:required {
+	background: #fff url(../images/invalid.png) no-repeat 98% center;
+}
+.contact_form_change_kp input:required:valid {
+	background: #fff url(../images/valid.png) no-repeat 98% center;
+	box-shadow: 0 0 5px #5cd053;
+	border-color: #28921f;
+}
+.contact_form_change_kp input:focus:invalid {
+	background: #fff url(../images/invalid.png) no-repeat 98% center;
+	box-shadow: 0 0 5px #d45252;
+	border-color: #b03535
+}
+
+.contact_form_change_kp input:focus + .form_hint {display: inline;}
+.contact_form_change_kp input:required:valid + .form_hint {background: #28921f;}
+.contact_form_change_kp input:required:valid + .form_hint::before {color:#28921f;}
+	
+/* === Button Style === */
+button.submit {
+	background-color: #68b12f;
+	background: -webkit-gradient(linear, left top, left bottom, from(#68b12f), to(#50911e));
+	background: -webkit-linear-gradient(top, #68b12f, #50911e);
+	background: -moz-linear-gradient(top, #68b12f, #50911e);
+	background: -ms-linear-gradient(top, #68b12f, #50911e);
+	background: -o-linear-gradient(top, #68b12f, #50911e);
+	background: linear-gradient(top, #68b12f, #50911e);
+	border: 1px solid #509111;
+	border-bottom: 1px solid #5b992b;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 0 0 #9fd574;
+	color: white;
+	font-weight: bold;
+	padding: 6px 20px;
+	text-align: center;
+	text-shadow: 0 -1px 0 #396715;
+}
+button.submit:hover {
+	opacity:.85;
+	cursor: pointer; 
+}
+button.submit:active {
+	border: 1px solid #20911e;
+	box-shadow: 0 0 10px 5px #356b0b inset; 
+
+}
+.zonavvoda {
+	margin: 10px;
+	width: 80%;
+	height: 150px;
+	font-size: 14px;
+}
+.text_in_kp {
+	margin: 5px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.table_bgc {
+	background-color: rgb(216, 213, 213);
+}
+
+.update_type_kp {
+	margin: 5px;
+	padding: 3px;
+
+}
+.dop_table_cs {
+	border:none;
+}
+.pdf_visota_stroki{
+	width:200px;
+	margin: 10px;
+	padding: 10px;
+	border:2px solid rgb(143, 94, 2)
+}
