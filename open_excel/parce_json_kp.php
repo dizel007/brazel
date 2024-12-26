@@ -1,11 +1,11 @@
 <?php
 require_once '../connect_db.php';
+require_once '../pdo_connect_db/select_functions.php';
 
-$link_json_file = "../".$_GET['LinkKp'];
-/// Преобразуем ссылку с эксель файла на ссылку json файла
-$t_2 = str_replace( 'EXCEL/' , 'JSON_KP/',  $link_json_file);
-$t_2 = substr($t_2, 0, -4)."json";;
-$json_kp_file="".$t_2; // получаем путь и имя файла
+require_once 'function_get_file_link_by_id.php';
+
+// достааем адрес файла по этому КП  по этому КП
+$json_kp_file = get_filelink_kp_by_id ($pdo, $_GET['id']);
 
 
 // получаем данные из JSON файла

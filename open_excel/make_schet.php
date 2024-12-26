@@ -1,8 +1,13 @@
 <?php
 require_once '../connect_db.php';
+require_once '../pdo_connect_db/select_functions.php';
+require_once 'function_get_file_link_by_id.php';
+
+// достааем адрес файла по этому КП  по этому КП
+$json_kp_file = get_filelink_kp_by_id ($pdo, $_GET['id']);
 
 $id=$_GET['id'];
-$inn=$_GET['inn'];
+
 
 // по id достаем номер КП
 $stmt = $pdo->prepare("SELECT * FROM `reestrkp` WHERE id = :id");
@@ -11,7 +16,7 @@ $arr_id = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 $KpNumber = $arr_id[0]['KpNumber'];
 $KpDate = $arr_id[0]['KpData'];
-
+$inn = $arr_id[0]['InnCustomer'];
 
 
 $stmt = $pdo->prepare("SELECT * FROM `inncompany` WHERE inn = :inn");
@@ -47,16 +52,16 @@ $schet_date = $KpDate_d . ' ' . $month_list[$KpDate_m] . ' ' . $KpDate_Y; // 08 
 
 // открываем файл с КП
 
-$link_json_file = "../".$_GET['LinkKp'];
-/// Преобразуем ссылку с эксель файла на ссылку json файла
-$t_2 = str_replace( 'EXCEL/' , 'JSON_KP/',  $link_json_file);
-$t_2 = substr($t_2, 0, -4)."json";;
-$file_name_="".$t_2; // получаем путь и имя файла
+// $link_json_file = "../".$_GET['LinkKp'];
+// /// Преобразуем ссылку с эксель файла на ссылку json файла
+// $t_2 = str_replace( 'EXCEL/' , 'JSON_KP/',  $link_json_file);
+// $t_2 = substr($t_2, 0, -4)."json";;
+// $file_name_="".$t_2; // получаем путь и имя файла
 
 
 // получаем данные из JSON файла
 
-$arr_data_kp = json_decode(file_get_contents($file_name_), true);
+$arr_data_kp = json_decode(file_get_contents($json_kp_file), true);
 $kp_name =  $arr_data_kp['dop_info']['KpNumber'].' от '.$arr_data_kp['dop_info']['KpDate'];
 $Zakazchik = $arr_data_kp['dop_info']['NameCustomer'];
 $Phone = $arr_data_kp['dop_info']['Telephone'];

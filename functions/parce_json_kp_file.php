@@ -4,11 +4,14 @@
 Парсим JSON file и созжаем из него данные для анализа и формирования КП
 ********************************************************************************/
 // формируем массив с данными
-$arr_data_kp = json_decode(file_get_contents($json_kp_file), true);
 
+
+
+$arr_data_kp = json_decode(file_get_contents($json_kp_file), true);
 
 // echo "<pre>";
 // print_r($arr_data_kp);
+// die();
 // данные для шапки
 $kp_name =  $arr_data_kp['dop_info']['KpNumber'].' от '.$arr_data_kp['dop_info']['KpDate'];
 $Zakazchik = $arr_data_kp['dop_info']['NameCustomer'];

@@ -31,7 +31,7 @@ function SetParametrsTable ($smarty, $array_with_all_kp) {
   // если cor_kol_kp = 0 то убираем 0
 ($array_with_all_kp[$i]['cor_kol_kp'] == 0)? $cor_kol_kp = '':$cor_kol_kp = $array_with_all_kp[$i]['cor_kol_kp'];
 
-/// ДЕЛАЕМ КОСТЫЛЬ, что если нет JSON ссылки, то хцодим на ЕКСЕЛЬ сссылки
+/// ДЕЛАЕМ КОСТЫЛЬ, что если нет JSON ссылки, то ходим на ЕКСЕЛЬ сссылки
 if ($array_with_all_kp[$i]['json_file'] == '') {
       $LinkKp[$i] = $array_with_all_kp[$i]['LinkKp'] ;
 

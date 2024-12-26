@@ -57,14 +57,14 @@
 {*<!-- ***************************  EXCEL файл  ********************************************** --> *}  
 
          {if ({$exist_excel_file.$i} == 1) }
-          <td><a href="open_excel/show_excel_kp.php?LinkKp={$array_with_all_kp.$i.LinkKp}" target="_blank"><img class="scale11" style = "opacity: 0.8" src="icons/table/excel.png" alt="Excel"></a></td>
+          <td><a href="open_excel/show_excel_kp.php?id={$array_with_all_kp.$i.id}" target="_blank"><img class="scale11" style = "opacity: 0.8" src="icons/table/excel.png" alt="Excel"></a></td>
          {else} 
        <td><img style = "opacity: 0.2" src="icons/table/excel.png" alt="Excel"></td>
         {/if} 
 {*<!-- *************************** парсер JS файл  ********************************************** --> *}  
 
          {if ({$exist_excel_file.$i} == 1) }
-             <td><a href="open_excel/parce_json_kp.php?LinkKp={$array_with_all_kp.$i.LinkKp}" target="_blank"><img class="scale11" style = "opacity: 0.8" src="icons/see_excel.png" alt="Excel"></a></td>
+             <td><a href="open_excel/parce_json_kp.php?id={$array_with_all_kp.$i.id}" target="_blank"><img class="scale11" style = "opacity: 0.8" src="icons/see_excel.png" alt="Excel"></a></td>
          {else} 
        <td><img style = "opacity: 0.2" src="icons/see_excel.png" alt="Excel"></td>
         {/if} 
@@ -76,7 +76,7 @@
 
 {*<!-- Проверяем есть ли файл с КП в формате ексель на сервере ********Скачиваем счет -->*}
   {if ({$exist_excel_file.$i} == 1) }  
-   <td><a href = "xls_schet/make_schet.php?id={$array_with_all_kp.$i.id}&inn={$array_with_all_kp.$i.InnCustomer}&LinkKp={$array_with_all_kp.$i.LinkKp}"><img class="scale11" style = "opacity: 0.8" src="icons/table/schet.png" alt="Excel"></a></td>
+   <td><a href = "open_excel/make_schet.php?id={$array_with_all_kp.$i.id}"><img class="scale11" style = "opacity: 0.8" src="icons/table/schet.png" alt="Excel"></a></td>
         {else}
     <td><img style = "opacity: 0.2" src="icons/table/schet.png" alt="Excel"></td>
       {/if }  
