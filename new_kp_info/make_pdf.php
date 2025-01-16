@@ -32,7 +32,9 @@ require_once '../PHPExcel-1.8/fpdf/fpdf.php';
   $ZakupName=$comparr['ZakupName'];
   $uslovia_oplati=$comparr['uslovia_oplati'];
   $srok_izgotovl=$comparr['srok_izgotovl'];
+  $json_file_name=$comparr['json_file_next'];
 
+  
   
 
 
@@ -608,7 +610,7 @@ $pdf->image('../new_kp_info/bottom_col.png',35,285,130);
 
 // die('PDFFFFF');
 //output the result
-$pdf->Output("../EXCEL/".$KpFileName.".pdf", 'F');
+$pdf->Output("../EXCEL/".$json_file_name.".pdf", 'F');
 unlink("../NEW_KP/".$qr_file_name);
 
 }

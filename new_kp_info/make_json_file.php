@@ -2,6 +2,13 @@
 function make_json_kp_file($products, $comparr, $user_responsible_arr, $hight_string)
 {
 
+
+//     echo "<pre>";
+// print_r($comparr);
+// die();
+
+
+
     $summa_kp = 0;
 
     foreach ($products as $prods) {
@@ -15,7 +22,7 @@ function make_json_kp_file($products, $comparr, $user_responsible_arr, $hight_st
     $array['hight_string'] = $hight_string;
 
     $json = json_encode($array, JSON_UNESCAPED_UNICODE);
-    $json_link_filekp = "../JSON_KP/" . $comparr['KpFileName'] . ".json";
+    $json_link_filekp = "../JSON_KP/" . $comparr['json_file_next'] . ".json";
     file_put_contents($json_link_filekp, $json);
 
 

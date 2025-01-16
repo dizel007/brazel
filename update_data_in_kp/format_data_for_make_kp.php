@@ -16,38 +16,21 @@ GET данные
 
 $pdf_visota_prod_stroki = $_POST['pdf_visota_prod_stroki'];
 $id = htmlspecialchars($_POST['id']); // 
-/* СРАЗУ ОБНОВИМ ВЫСОТА СТРОКИ ТОВАРОВ в ПДФ Документе*/
-$data_arr_ = [
-  'visota_str_pdf_doc' => $pdf_visota_prod_stroki,
-  'id' => $id,
-];
-
-$sql = "UPDATE reestrkp SET visota_str_pdf_doc=:visota_str_pdf_doc WHERE id=:id";
-$stmt = $pdo->prepare($sql);
-$stmt->execute($data_arr_);
-
-
 $type_kp_new = htmlspecialchars($_POST['type_kp']);
 $product_type_new = htmlspecialchars($_POST['product_type']);
 $param_arr['type_kp'] = $type_kp_new;
 $param_arr['type_product'] = $product_type_new;
-
 $adress = trim(htmlspecialchars($_POST['adress_dostavki']));
 $ZakupName = trim($_POST['ZakupName']);
-
 $telefon_zakaz = trim(htmlspecialchars($_POST['telefon_zakaz']));
 $email_zakaz = trim(htmlspecialchars($_POST['email_zakaz']));
 $contact_face_zakaz = trim(htmlspecialchars($_POST['contact_face_zakaz']));
 
 // Выставляем условия КП, если не пришли никакое условия
 (isset($_POST['uslovia_oplati'])) ? $uslovia_oplati = htmlspecialchars($_POST['uslovia_oplati']) : $uslovia_oplati = 'по согласованию сторон';
-
 (isset($_POST['srok_izgotovl'])) ? $srok_izgotovl = htmlspecialchars($_POST['srok_izgotovl']) : $srok_izgotovl = 'в наличии';
 
-
 // если треубется обновиь данные о Заказчике в КП
-
-
 if (isset($_POST['InnCustomer'])) {
   UpdateCustomerDataInReestr($pdo, $_POST['InnCustomer'], $id);
 }
@@ -66,11 +49,8 @@ $KpNumber = $arr_kp_by_id[0]['KpNumber'];
 $KpDate = $arr_kp_by_id[0]['KpData'];
 $now = new DateTime($KpDate);
 $KpDate_temp = $now->format('d.m.Y'); // меняет отображение даты для КП 
-
 $NameCustomer = $arr_kp_by_id[0]['NameCustomer'];
-// $adress = $arr_kp_by_id[0]['adress'];
 $ContactCustomer = $arr_kp_by_id[0]['ContactCustomer'];
-
 // Формируем номер закупки из ссылки
 $NomerZakupki = $arr_kp_by_id[0]['konturLink'];
 $NomerZakupki = $result = preg_replace("/[^,0-9]/", '', $NomerZakupki);
@@ -85,48 +65,60 @@ $stmt = $pdo->prepare("SELECT * FROM `users` WHERE `user_name` = ?");
 $stmt->execute([$Responsible]);
 $user_responsible_arr = $stmt->fetchAll(PDO::FETCH_ASSOC); // данные для заполнения инфы про ответ-го
 
-/** получаем ссылку на файл ексель */
+$date_write = date('Y-m-d');
+
+
+/** ************************************************************************* */
+/** готовим наименования файлов */
+/** ************************************************************************* */
+
 $LinkKp = $arr_kp_by_id[0]['LinkKp'];
 mb_internal_encoding("UTF-8");
 $FileName_temp = mb_substr($arr_kp_by_id[0]['LinkKp'], 6);
 $FileName_temp = mb_substr($FileName_temp, 0, -5); // Название файла без расширения
+$json_file = $arr_kp_by_id[0]['json_file'];
 
-// Добавляем новую версию файла КП
-if ($arr_kp_by_id[0]['cor_kol_kp'] == 0) {
-  $next_cor_kol_kp = 1;
-  $FileName_temp = $FileName_temp . $next_cor_kol_kp;  // цепляем новую весрия.
 
-} else { // Если уже существовал файл, то плюсую версию
+/// ЕСЛИ ЕСТЬ JSON_FILE в базе 
+
+ // ищем номер итерации
+$cor_kol_kp = $arr_kp_by_id[0]['cor_kol_kp']; //  номер итерации КП
+  if (($cor_kol_kp == '') OR ($cor_kol_kp == 0)) { // первая итерация без номер 
+    $cor_kol_kp = '';
+    $next_cor_kol_kp = 1;
+  } else {
+    $next_cor_kol_kp = $cor_kol_kp + 1;
+
+  }
+
+  
+if ($json_file <> '') {
+  $file_name_old = "../JSON_KP/" .  $json_file .$cor_kol_kp.".json"; // Перешел на json  формат
+ 
+  // echo "<br>JSON filename ". $file_name_old . "<br>";
+} else { // старая версия изменяем ссылку екселя
   $len_cor_kol_kp = strlen($arr_kp_by_id[0]['cor_kol_kp']);
+  $json_file = mb_substr($FileName_temp, 0, -$len_cor_kol_kp); // Убираем прошлую версию файла без расширения
 
-  $FileName_temp = mb_substr($FileName_temp, 0, -$len_cor_kol_kp); // Убираем прошлую версию файла без расширения
-  $next_cor_kol_kp = $arr_kp_by_id[0]['cor_kol_kp'] + 1;
 
-  $FileName_temp = $FileName_temp . $next_cor_kol_kp;  // цепляем новую весрия.
+  $t_2 = str_replace('EXCEL/', 'JSON_KP/',  $LinkKp);
+  $t_2 = substr($t_2, 0, -4) . "json";
+  $file_name_old = "../" . $t_2; // получаем путь и имя файла
+// echo "<br>ECXEL filename ". $file_name_old . "<br>";
+
 }
+$json_file_next = $json_file .$next_cor_kol_kp; // новое имя json файла
 
-$file_name_ = "../" . $LinkKp;
 
-
-$date_write = date('Y-m-d');
-
-// echo "$FileName_temp";
+// echo "<pre>";
+// echo "<br>$file_name_old<br>";
+// echo "<br>$json_file_next<br>";
+// echo "<br>****$json_file****<br>";
 // die();
-/// Преобразуем ссылку с эксель файла на ссылку json файла
-$t_2 = str_replace('EXCEL/', 'JSON_KP/',  $file_name_);
-$t_2 = substr($t_2, 0, -4) . "json";;
-$file_name_ = "" . $t_2; // получаем путь и имя файла
 
 
 
-// $kp_array_shapka = parce_kp($file_name_)['shapka'];
-$kp_array_shapka = parce_json_kp_file($file_name_)['shapka'];
-
-
-
-// echo "<pre>";
-// print_r($kp_array_shapka);
-// echo "<pre>";
+$kp_array_shapka = parce_json_kp_file($file_name_old);
 
 $products = make_prod_array($_POST);
 
@@ -157,13 +149,16 @@ $comparr = array(
   'DostCost' => $_POST['price_dost']
 );
 $comparr += array('KpFileName' => $KpFileName); // наименование файла
+$comparr += array('json_file' => $json_file); // наименование файла
+$comparr += array('json_file_next' => $json_file_next); // наименование файла
 
 
 
 //формируем JSON документ
-$temp_array['total'] = make_json_kp_file($products, $comparr, $user_responsible_arr, $KpSum, $hight_string);
+              
+$temp_array['total'] = make_json_kp_file($products, $comparr, $user_responsible_arr, $pdf_visota_prod_stroki);
 $temp_array['KpFileName'] = $comparr['KpFileName'];
-
+$temp_array['json_file'] = $comparr['json_file'];
 // format_new_kp($products, $comparr, $user_responsible_arr); // Формируем КП и получаем сумму КП 
 
 
@@ -177,6 +172,30 @@ if ($KpSum > 100) {
 } else {
   $marker = 1;
 }
+
+
+
+/* ОБНОВИМ ВЫСОТА СТРОКИ ТОВАРОВ в ПДФ Документе*/
+$data_arr_ = [
+  'visota_str_pdf_doc' => $pdf_visota_prod_stroki,
+  'id' => $id,
+];
+
+$sql = "UPDATE reestrkp SET visota_str_pdf_doc=:visota_str_pdf_doc WHERE id=:id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute($data_arr_);
+
+// обновляем json_file_namr
+$data_arr_json = [
+  'json_file' => $json_file,
+  'id' => $id,
+];
+
+$sql = "UPDATE reestrkp SET json_file=:json_file WHERE id=:id";
+$stmt = $pdo->prepare($sql);
+$stmt->execute($data_arr_json);
+
+
 
 //формируем ПЖФ документ
 make_pdf_kp($products, $comparr, $user_responsible_arr, $KpSum, $pdf_visota_prod_stroki); // 
@@ -249,7 +268,7 @@ function update_db_reestr_kp($id, $temp_array, $pdo, $Responsible, $cor_kol_kp, 
     'adress' => $adress,
     'type_kp' => $param_arr['type_kp'],
     'type_product' => $param_arr['type_product'],
-
+    
     'id' => $id,
   ];
 
