@@ -93,13 +93,13 @@
   {$i=0}
   <hr>
   <br>
-     {if (isset($new_link_kp_by_our_id) >0)}
+     {if (isset($new_link_kp_by_our_id) > 0)}
         <b>Остальные сформированные КП:</b>
           <hr>
         {foreach from=$new_link_kp_by_our_id item=dop_kp}
             <input type="hidden" name="count_dop_kp" value="{$count_dop_kp}">   
             <input type="checkbox"  name="dop_kp_{$i}" value="{$dop_kp}"> 
-            <label for="dop_kp_{$i}"><a href="{$dop_kp}" target="_blank"><img src="icons/table/pdf.png"></a>
+            <label for="dop_kp_{$i}"><a href="EXCEL/{$dop_kp}" target="_blank"><img src="icons/table/pdf.png"></a>
             {$dop_kp}</label>
              <hr>        
             {$i=$i+1}

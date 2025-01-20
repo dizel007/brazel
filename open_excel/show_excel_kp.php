@@ -6,7 +6,10 @@
 // достааем адрес файла по этому КП  по этому КП
 $json_kp_file = get_filelink_kp_by_id ($pdo, $_GET['id']);
 
-	print_r($json_kp_file);
+	// print_r($json_kp_file);
+
+
+	// die();
 // получаем данные из JSON файла
 require_once("../functions/parce_json_kp_file.php");
 // находим информацию по пользователю
@@ -358,8 +361,12 @@ $NameCustomer = str_replace('»', '', $NameCustomer);
 // print_r($arr_data_kp);
 // die();
 // die();
+if (isset($arr_data_kp['dop_info']['json_file_next'])) {
 $KpFileName= $arr_data_kp['dop_info']['json_file_next'];
-
+} else {
+	$KpFileName= $arr_data_kp['dop_info']['KpFileName'];
+}
+ 
 $Kp_excel_path = '../EXCEL/'.$KpFileName.".xlsx";
 $objWriter->save($Kp_excel_path);
 

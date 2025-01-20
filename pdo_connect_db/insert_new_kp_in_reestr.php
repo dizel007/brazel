@@ -128,7 +128,7 @@ $comparr += array ('DostCost' => $DostCost);
 $comparr += array ('ZakupName' => $ZakupName);
 
 $comparr += array ('KpFileName' => $KpFileName); // название файла
-
+$comparr += array('json_file_next' => $KpFileName); // наименование файла
 
 //  ***************************************************************************************
 # ЗАГРУЖАЕМ НЕОБХОДИМЫЕ ФАЙЛЫ НА САЙТ

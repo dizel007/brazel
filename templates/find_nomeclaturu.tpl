@@ -43,11 +43,11 @@
          
           {if $temp_kp_id != $one_item['id']}
     <td rowspan="{count($items)}">{$one_item['KpNumber']} от {$one_item['KpData']}</td>
-    <td rowspan="{count($items)}"><a href = "../open_excel/parce_excel_kp.php?LinkKp={$one_item['LinkKp']}"><img style = "opacity: 0.7" src="../icons/see_excel.png" alt="Excel"></a></td>
+    <td rowspan="{count($items)}"><a href = "../open_excel/parce_json_kp.php?id={$one_item['id']}"><img style = "opacity: 0.7" src="../icons/see_excel.png" alt="Excel"></a></td>
 
     <td rowspan="{count($items)}">{$one_item['Responsible']}</td> 
 
-    <td rowspan="{count($items)}"><a href = "../{$one_item['LinkKp']}"><img style = "opacity: 0.7" src="../icons/table/excel.png" alt="Excel"></a></td>
+    <td rowspan="{count($items)}"><a href = "../open_excel/show_excel_kp.php?id={$one_item['id']}"><img style = "opacity: 0.7" src="../icons/table/excel.png" alt="Excel"></a></td>
 
     <td rowspan="{count($items)}"><a href = "..?transition=10&id={$one_item['id']}"><img style = "opacity: 0.7" src="../icons/see_excel_1.png" alt="Excel"></a></td>
 

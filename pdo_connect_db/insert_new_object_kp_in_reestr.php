@@ -97,7 +97,7 @@ $comparr += array ('DostCost' => $DostCost);
 $comparr += array ('ZakupName' => $ZakupName);
 
 $comparr += array ('KpFileName' => $KpFileName); // название файла
-
+$comparr += array('json_file_next' => $KpFileName); // наименование файла
 //  ***************************************************************************************
 # ЗАГРУЖАЕМ НЕОБХОДИМЫЕ ФАЙЛЫ НА САЙТ
 $uploaddir = '../NEW_KP/';
@@ -142,7 +142,7 @@ $KpFileName= $comparr['KpFileName'];
 // $LinkKp = 'EXCEL/'.$KpFileName.".xlsx"; // закоментил 26.12.2024 - когда решил отказать от екскля
 $LinkKp = ''; // закоментил 26.12.2024 - когда решил отказать от екскля
 
-
+die();
 $Link_json_link_Kp = $KpFileName;
 
 // ****************************************
