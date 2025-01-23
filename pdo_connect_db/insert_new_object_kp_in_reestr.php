@@ -142,7 +142,7 @@ $KpFileName= $comparr['KpFileName'];
 // $LinkKp = 'EXCEL/'.$KpFileName.".xlsx"; // закоментил 26.12.2024 - когда решил отказать от екскля
 $LinkKp = ''; // закоментил 26.12.2024 - когда решил отказать от екскля
 
-die();
+// die();
 $Link_json_link_Kp = $KpFileName;
 
 // ****************************************
