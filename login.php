@@ -1,6 +1,8 @@
 <?php
  // Страница авторизации
    // Функция для генерации случайной строки
+$alarm_password_message = "";
+$ip_temp_adress = $_SERVER['REMOTE_ADDR'];
 function generateCode($length = 6)
 {
     $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ0123456789";
@@ -48,6 +50,9 @@ if (isset($_POST['submit'])) {
     $stmt = $pdo->prepare("SELECT * FROM users WHERE user_login='" . $login . "' LIMIT 1");
     $stmt->execute([]);
     $udata = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
+    
+    
 
     
 if (isset($udata[0])) { // Проверяем, достали ли ЛОГИН из БД
@@ -58,7 +63,6 @@ $new_data = call_user_func_array('array_merge', $udata); // Уменьшаем �
 // echo "<pre>";
 // print_r($udata);
 // echo "<pre>";
-
 
 
 // Проверяем IP
@@ -76,19 +80,46 @@ FindUserIP ($pdo, $new_data);
             setcookie("id", $new_data['user_id'], time() + 60 * 60 * 24, "/");
             setcookie("hash", $hash, time() + 60 * 60 * 24, "/", null, null, true);
             setcookie("user_name", $new_data['user_login'], time() + 60 * 60 * 24, "/", null, null, true);
+            
+// print_r($new_data);
+            // Данные о регистрации пользователя 
+            $date_change = date("Y-m-d");
+            $id_item =  $new_data['user_id'];
+            $what_change = 13;
+            $comment_change = "Пользователь зашел в реестр: ".$new_data['user_login']. "(IP = $ip_temp_adress)"; 
+            $author = $new_data['user_login'];
+            require "pdo_connect_db/insert_reports.php";
             // Переадресовываем браузер на страницу проверки нашего скрипта
             header("Location: index.php");
+
             exit();
         } else {
+            // Данные о попытке зайти на сайт 
+            $date_change = date("Y-m-d");
+            $id_item =  0;
+            $what_change = 13;
+            $comment_change = "Попытка зайти в реестр: ".$login . "(IP = $ip_temp_adress)"; 
+            $author = $login;
+            require "pdo_connect_db/insert_reports.php";
+            // отправояем ЕМАЙЛ 
             $subject_theme="Кто то неверно ввел пароль";
             require('mailer/alarm_mail_message.php');
-            print "Вы ввели неправильный логин/пароль";
+            $alarm_password_message = "Вы ввели неправильный логин/пароль";
         
         }
     } else {
+        // Данные о попытке зайти на сайт 
+        $date_change = date("Y-m-d");
+        $id_item =  0;
+        $what_change = 13;
+        $comment_change = "Попытка зайти в реестр: ".$login . "(IP = $ip_temp_adress)"; 
+        $author = $login;
+        require "pdo_connect_db/insert_reports.php";
+        // отправояем ЕМАЙЛ 
+        
         $subject_theme="Кто то неверно ввел логин";
         require('mailer/alarm_mail_message.php');
-        print "Вы ввели неправильный логин/пароль!"; 
+        $alarm_password_message = "Вы ввели неправильный логин/пароль";
     }
 
  }
@@ -111,9 +142,11 @@ FindUserIP ($pdo, $new_data);
 
 <body>
     <div class="container">
+   
         <div class="row">
         <div class="col-3 w-30 mx-auto shadow-lg loginform">
             <form method="POST">
+            <?php echo $alarm_password_message ?>
                 <br>
                 <label for="exampleFormControlInput1" class="form-label">Логин</label>
                     <input class="form-control"  name="login" type="text" required>
