@@ -47,6 +47,13 @@ switch ($transition) {
         $smarty ->display('register_new_user.tpl');
         break;
 
+    case 6: // уходим на редактирование пользователя 
+        $pageName = "Ввод нвого пользователя";
+        $smarty->assign('pageName', $pageName);
+        include_once 'parts_site/header.php';
+        include_once "sub_programs/update_data_user.php";
+        break;
+        
 
     case 7: // основная таблица с фильтром  КП
         $pageName = "Реестр с фильтром  КП";

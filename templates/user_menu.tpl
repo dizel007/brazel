@@ -49,15 +49,17 @@
      <a href="?transition=80&user_login={$userdata['user_login']}" target="_blank">Поиск</a>
   </li>        
 {* Ввод нового Юзера *}
-      {if $userdata['userType'] == 1}
+      {if $userdata['userType'] >= 1}
       <li>
         <a href="?transition=5&user_login={$userdata['user_login']}" data-item='Новый пользователь' >Новый пользователь</a>
       </li>
-
-
-     
-
       {/if}
+
+      {if $userdata['userType'] > 1}
+        <li>
+          <a href="?transition=6" data-item='Редакт Юзера' >Редакт Юзера</a>
+        </li>
+        {/if}
 
     </ul>
   </nav>

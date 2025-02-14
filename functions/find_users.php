@@ -14,7 +14,7 @@
     $active_user_login[$value ['user_login']] = $value ['user_name'];
   }
 
-
+$arr_with_all_active_users =   $arr;
   $count_users = count($active_user_names_arr_smarty);
   $smarty->assign('active_user_logins_arr_smarty', $active_user_logins_arr_smarty);
   $smarty->assign('active_user_names_arr_smarty', $active_user_names_arr_smarty);

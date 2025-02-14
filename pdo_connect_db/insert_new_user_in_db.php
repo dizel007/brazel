@@ -35,7 +35,7 @@ $login = $_POST['login'];
 
     // Убераем лишние пробелы и делаем двойное хеширование
 $password = md5(md5(trim($_POST['password'])));
-$main_phone= '8 (495) 787-24-05';
+$main_phone= '8 (495) 489-25-25';
 $active_mode = 1;
 $user_ful_name = $_POST['user_first_name'].' '.$_POST['user_last_name'];
 $date_write =date('Y-m-d');
