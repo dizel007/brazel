@@ -33,10 +33,24 @@ else {
     }
 }
 
+
+//  Формируем ссылку на закупки ГОВ из ссылки на контур закупки
+foreach ($array_with_all_kp_temp as &$temp_kp_) {
+  if ($temp_kp_['konturLink'] != '') {
+    $zak_gov_link = str_replace('zakupki.kontur.ru/' , 'zakupki.gov.ru/epz/order/notice/ea20/view/common-info.html?regNumber=', $temp_kp_['konturLink'] );
+    $temp_kp_['zakupki_gov'] = $zak_gov_link ;
+  } else {
+    $temp_kp_['zakupki_gov'] = '';
+  }
+
+}
+
 // echo "<pre>";
 // print_r($array_with_all_kp_temp);
-// echo "<pre>";
+// echo "</pre>";
 
+
+// die();
 
 
 

@@ -27,7 +27,8 @@
                <td><p title="Редактирование КП">Ред</p></td>
                <td width ="60" class="hidden_class_column">Сл.звонок</td>
                <td class="hidden_class_column">Состояние</td>
-               <td>amo</td>
+               <td><p title="Ссылка на сайт закупки ГОВ">ЗГ</p></td>
+               {*<td>amo</td>*}
                <td>Сумма КП</td>
                <td><p title="Создать КП в эту же Компанию">ДКП</p></td>
                <td width ="40" class="hidden_class_column">НМЦК Закупки</td>
@@ -177,15 +178,22 @@
    
    
    {*<!-- ********************************** AMO crm ********************************** -->    *}
-   {if $array_with_all_kp.$i.id_amo_lead <> 0}
-   <td><a target="_blank" href= "https://anmaks.amocrm.ru/leads/detail/{$array_with_all_kp.$i.id_amo_lead}"><img style = "opacity: 0.8" src="icons/table/amo.jpg" alt="AmoCRM"></a></td>
-   {else}
-
-    <td><a target="_blank" href= "amo/a_amo_test/insert_new_ko_in_amo.php?id={$array_with_all_kp.$i.id}"><img style = "opacity: 0.2" src="icons/table/amo.jpg" alt="AmoCRM"></a></td>
+   {* {if $array_with_all_kp.$i.id_amo_lead <> 0} *}
+   {* <td><a target="_blank" href= "https://anmaks.amocrm.ru/leads/detail/{$array_with_all_kp.$i.id_amo_lead}"><img style = "opacity: 0.8" src="icons/table/amo.jpg" alt="AmoCRM"></a></td> *}
+   {* {else} *}
+   {* <td><a target="_blank" href= "amo/a_amo_test/insert_new_ko_in_amo.php?id={$array_with_all_kp.$i.id}"><img style = "opacity: 0.2" src="icons/table/amo.jpg" alt="AmoCRM"></a></td> *}
    {* <td><img style = "opacity: 0.2" src="icons/table/amo.jpg" alt="AmoCRM"></td>; *}
-
-   {/if}
-
+   {* {/if} *}
+    
+   
+   {*<!-- ******************************  ЗакупКИ ГОВ   *********************************** -->*}
+    {if ({$array_with_all_kp.$i.konturLink} <> '') } 
+      <td><a href= "{$array_with_all_kp.$i.zakupki_gov}" alt="konturLink" target="_blank"><img class="scale11" style = "opacity: 0.8" src="icons/table/zakupkigov.jpg" alt="SeeLinkKontur"></a></td>
+    {else}
+    <td><img class="" style = "opacity: 0.2" src="icons/table/zakupkigov.jpg" alt="SeeLinkKontur"></td>
+    {/if}
+    
+    
   
   
   {*<!-- ********************************** СУММА КП ********************************** -->    *}  
