@@ -12,33 +12,48 @@ $arr_with_all_changes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt = $pdo->prepare("SELECT * FROM `reestrkp` WHERE 	id = $id");
 $stmt->execute([]);
 $arr_with_info_kp= $stmt->fetchAll(PDO::FETCH_ASSOC);
-$LinkKp = $arr_with_info_kp[0]['LinkKp'];
+$LinkKp = "EXCEL/".$arr_with_info_kp[0]['json_file'];
 $cor_kol_kp = $arr_with_info_kp[0]['cor_kol_kp'];
 
-$LinkKp = substr($LinkKp,0, -5);
+// $LinkKp = substr($LinkKp,0, -5);
 
-if ($cor_kol_kp >0 ) {
-$LinkKp = substr($LinkKp, 0,-strlen($cor_kol_kp));
-}
+// echo "<br>$LinkKp<br>";
 
+
+
+// die();
+
+// if ($cor_kol_kp > 0 ) {
+// $LinkKp = substr($LinkKp, 0,-strlen($cor_kol_kp));
+// }
 
 
 $LinkKp_first = $LinkKp.".pdf"; // самое первое КП
-
 
 if (!file_exists($LinkKp_first)) 
 {
   $LinkKp_first=''; 
 }
-
+// echo "<br>$LinkKp_first<br>";
 /** смотрим, если ледит файл на сервере то выведем ссылку для него */
-for ($i=1; $i<=$cor_kol_kp; $i++)
-      
-if (file_exists($LinkKp.$i.".pdf" )) {
+
+
+for ($i=1; $i<=$cor_kol_kp; $i++){
+  if (file_exists($LinkKp.$i.".pdf" )) {
   $arr_LinkKp[] = $LinkKp.$i.".pdf";
+ 
 } else {
   $arr_LinkKp[]='';
 }
+}
+
+
+// echo  "<pre>";
+// print_r($arr_with_info_kp);
+
+// print_r($arr_LinkKp);
+
+
 $i22=0;
 foreach ($arr_with_all_changes as $value) {
 
@@ -52,6 +67,8 @@ foreach ($arr_with_all_changes as $value) {
   if ($value['what_change'] == 12) {
     $change_data_kp[] = $value;
   }
+
+
 
 
   if ($value['what_change'] == 1) {
@@ -78,6 +95,10 @@ foreach ($arr_with_all_changes as $value) {
   }
 
 }
+
+// echo  "<pre>";
+// print_r($change_data_kp);
+
 $k1=0;
 if (isset($change_in_kp)) {
     foreach ($change_in_kp  as &$arr_value) {

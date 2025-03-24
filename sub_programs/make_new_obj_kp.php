@@ -99,6 +99,7 @@ $smarty->assign("email_comp" , $email_comp);
     }
 }
 // подтянем данные с сайта контур
+
 isset($_GET['KonturLink'])?$KonturLink=$_GET['KonturLink']:$KonturLink='';
 
 // $temp = strpos($KonturLink,'https://zakupki.kontur.ru/');
@@ -119,9 +120,6 @@ if ($KonturLink <> ''){
                 $smarty->assign("tender_data" , $tender_data);
               }
 }
-
-
-
 
     
 $smarty->display('make_new_obj_kp.tpl');

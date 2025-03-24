@@ -123,7 +123,7 @@
    <tr>
     <td>0</td>
     <td> 
-              {if ($LinkKp_first <> '')}
+      {if ($LinkKp_first <> '')}
       <a href="{$LinkKp_first}" target="_blank" >Первичное КП</a>
          {else}
          файл удален с сервера
@@ -133,13 +133,13 @@
     </td>
     <td>{$start_info_kp['time_change']}</td>
     <td>
-              {foreach $active_user_login key=key item=user}
+      {foreach $active_user_login key=key item=user}
             {if $start_info_kp['author'] == $key}
               {$user}
             {/if}
           {/foreach}
     </td>
-  </tr>
+        </tr>
  
   {$i=0}
   {foreach from=$change_data_kp item=comment}
@@ -153,7 +153,7 @@
          файл удален с сервера
          {/if}
       </td>
-      <td>{$comment['time_change']}</td>
+      <td>{$comment['time_change']} </td>
       <td>
         {foreach $active_user_login key=key item=user}
             {if $comment['author'] == $key}
