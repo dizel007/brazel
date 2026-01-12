@@ -114,6 +114,9 @@ if (strpos($active_user[0]['user_online_email'], 'anmaks.ru' ))
 }
 
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
+
+// echo "<pre>";
+// print_r($active_user[0]);
 $mail->Username = $active_user[0]['user_online_email'];                 // Наш логин
 $mail->Password = $active_user[0]['pass_online'];                 // Наш пароль от ящика
 //
@@ -127,7 +130,7 @@ $mail->Subject = $subject_theme; // тема письма
 $mail->Body    = $body_post;
 $mail->addAddress($email_from_kp);     // Add a recipient
 
-
+// $mail->SMTPDebug = 3;
 
 $mail->AltBody = $body_post; // не HTML Письма *****************************************
 
@@ -158,7 +161,6 @@ if ($_FILES['upload_file']['name'][0] <> "") {
             
         }
       }
-
 
 // ************************* Цепляем Презентацию *************************************
 if ($_POST['catalog']>0) {
@@ -223,7 +225,7 @@ if ($_POST['catalog']>0) {
 
 
         } else {
-            $result = "ОШИБКА!!!!";
+            $result = "ALARM SEND!!!!";
             echo "ОШИБКА ОТПРАВКИ";
             $status ="$mail->ErrorInfo";
 

@@ -29,7 +29,7 @@ if ($name == '') {
 }
 
 // УБИРАЕМ ВСЕ НЕПОНЯТНЫЕ СИМВОЛЫ******************************************************************************
-$name = preg_replace("/[^а-яёa-z,0-9-%*.,:;=() ]/iu", '', $name); // 
+$name = preg_replace("/[^а-яёa-z,0-9-%*.,:;=()№\/ ]/iu", '', $name); // 
 
 $ed_izm = $sheet->getCellByColumnAndRow(2, $i)->getValue();
 $kolvo  = $sheet->getCellByColumnAndRow(3, $i)->getValue();

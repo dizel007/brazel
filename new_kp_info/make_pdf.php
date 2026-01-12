@@ -582,7 +582,8 @@ $contact_font_size = 7;
 // 
 $pdf->SetTextColor(0,0,0); // черный цвет
 $pdf->Cell(144 ,$h_cell, MakeUtf8Font(""),'0',0,'L','');
-$pdf->Cell(45 ,$h_cell, MakeUtf8Font("Связаться с нами"),'0',0,'L','');
+
+$pdf->Cell(45 ,$h_cell, MakeUtf8Font("Написать нам в ТГ"),'0',0,'L','');
 // QR code 
 $pdf->image('../NEW_KP/'.$qr_file_name,180,250,20);
 $text1 = '%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!'; // Здравствуйте
@@ -593,11 +594,17 @@ $text1 .= $KpNumber; //  номер КП
 $text1 .= '%20%D0%BE%D1%82%20'; // от
 $text1 .= $KpDate_temp; //  дата КП
 
-$whatsapp_link = "https://api.whatsapp.com/send?phone=$qr_telephon&text=$text1";
+// $whatsapp_link = "https://api.whatsapp.com/send?phone=$qr_telephon&text=$text1";
+// $pdf->image('../images/link_whatsapp.png',179,273,20,0,'', $whatsapp_link);
 
+$tg_link = 'https://t.me/+'.$qr_telephon.'?text='.$text1;
+// echo "$tg_link";
+// die();
 // **************************/ https://whatsaps.ru/ генератор ссылок
 
-$pdf->image('../images/link_whatsapp.png',179,273,20,0,'', $whatsapp_link);
+// $pdf->image('../images/link_whatsapp.png',179,273,20,0,'', $tg_link);
+$pdf->image('../images/link_tg.jpg',179,273,20,0,'', $tg_link);
+
 
 
   // колонтитул внизу  

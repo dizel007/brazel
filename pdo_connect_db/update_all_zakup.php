@@ -29,6 +29,9 @@ if ($Comment != '') {
 }
 // $Comment=htmlspecialchars($Comment);
 
+$second_sell = $my_id_arr[0]['second_sell'];; // признак, что купили у нас
+
+
 $DateNextCall = $_POST['DateNextCall'];
 $KpCondition = $_POST['KpCondition'];
 $KpSum = $_POST['KpSum'];
@@ -38,6 +41,9 @@ $dateContract = $_POST['dateContract'];
 $procent_work = $_POST['procent_work'];
 $dateFinishContract = $_POST['dateFinishContract'];
 $today = date("Y-m-d");
+
+
+
 //Проверяем если закупка закупка продана или закрыта, то добаляем дату продажи или закрытия;
 if (($KpCondition == "Не требуется") || ($KpCondition == "Уже купили") || $FinishContract == 1) {
   $date_close = date('Y-m-d');
@@ -53,7 +59,7 @@ if ($KpCondition == "Купили у нас") {
   $second_sell = 1; // признак, что купили у нас
 } else {
   $date_sell = ""; // дата продажи
-  $second_sell = 0; // признак, что купили у нас
+  // $second_sell = 0; // признак, что купили у нас
 }
 
 if ($KpCondition == "В работе") {
